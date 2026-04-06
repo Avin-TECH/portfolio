@@ -1,0 +1,151 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Contact — Avin Joju{% endblock %}
+
+{% block content %}
+
+<section style="padding-top: 120px; padding-bottom: 100px;">
+    <div class="container">
+
+        <p class="section-label fade-in">[ GET IN TOUCH ]</p>
+        <h2 class="section-title fade-in">CONTACT ME</h2>
+
+        <div class="row">
+
+            <!-- LEFT — Contact Info -->
+            <div class="col-lg-5 mb-5 fade-in">
+
+                <p style="color: #888; font-size: 0.95rem; line-height: 1.9; margin-bottom: 40px;">
+                    I'm currently open to internships, collaborations and exciting AI & Data Science projects.
+                    Feel free to reach out — I'd love to connect!
+                </p>
+
+                <!-- Contact Cards -->
+                <div class="card p-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                            <i class="fas fa-envelope accent"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888; margin: 0;">EMAIL</p>
+                            <a href="mailto:avin.joju@outlook.com" style="color: var(--white); font-size: 0.9rem; text-decoration: none;">
+                                avin.joju@outlook.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                            <i class="fas fa-phone accent"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888; margin: 0;">PHONE</p>
+                            <a href="tel:+4917663660100" style="color: var(--white); font-size: 0.9rem; text-decoration: none;">
+                                +49 17663660100
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                            <i class="fab fa-github accent"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888; margin: 0;">GITHUB</p>
+                            <a href="https://github.com/Avin-TECH" target="_blank" style="color: var(--white); font-size: 0.9rem; text-decoration: none;">
+                                github.com/Avin-TECH
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-4 mb-3">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                            <i class="fab fa-linkedin accent"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888; margin: 0;">LINKEDIN</p>
+                            <a href="https://www.linkedin.com/in/avin-joju" target="_blank" style="color: var(--white); font-size: 0.9rem; text-decoration: none;">
+                                linkedin.com/in/avin-joju
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="card p-4 mt-3">
+                    <div class="d-flex align-items-center">
+                        <div style="width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                            <i class="fas fa-map-marker-alt accent"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888; margin: 0;">LOCATION</p>
+                            <p style="color: var(--white); font-size: 0.9rem; margin: 0;">
+                                Deggendorf, Bavaria, Germany
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT — Contact Form -->
+            <div class="col-lg-7 fade-in">
+                <div class="card p-5">
+                    <h4 style="font-family: 'Bebas Neue'; font-size: 1.8rem; letter-spacing: 3px;" class="mb-4">
+                        SEND ME A <span class="accent">MESSAGE</span>
+                    </h4>
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div style="background: rgba(255,107,0,0.1); border: 1px solid var(--orange); padding: 15px 20px; margin-bottom: 20px; font-size: 0.9rem;">
+                        ✅ {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Your Name</label>
+                                <input type="text" name="name"
+                                    style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 12px 15px; margin-top: 8px; outline: none; font-family: 'Space Grotesk';"
+                                    placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Your Email</label>
+                                <input type="email" name="email"
+                                    style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 12px 15px; margin-top: 8px; outline: none; font-family: 'Space Grotesk';"
+                                    placeholder="john@email.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Subject</label>
+                            <input type="text" name="subject"
+                                style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 12px 15px; margin-top: 8px; outline: none; font-family: 'Space Grotesk';"
+                                placeholder="Project Inquiry" required>
+                        </div>
+                        <div class="mb-4">
+                            <label style="font-size: 0.75rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Message</label>
+                            <textarea name="message" rows="6"
+                                style="width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 12px 15px; margin-top: 8px; outline: none; resize: none; font-family: 'Space Grotesk';"
+                                placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-orange btn w-100" style="padding: 15px; font-size: 0.9rem; letter-spacing: 3px;">
+                            <i class="fas fa-paper-plane me-2"></i> SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
